@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delta Store</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+    <!-- LIB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="assets/styles/catalog.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__top d-none d-lg-flex justify-content-between">
+            <div class="header__contacts d-flex">
+              <div class="header__phone">
+                <a href="tel:+73832461331" class="d-flex">
+                  <img src="assets/icons/telephone.svg" alt="telephone" />
+                  <span>+7 (383) 246-13-31</span>
+                </a>
+              </div>
+
+              <div class="header__work-time d-flex">
+                <img src="assets/icons/work-time.svg" alt="work time" />
+                <span>10:00 - 21:00</span>
+              </div>
+            </div>
+
+            <nav class="header__top-nav">
+              <ul class="header__top-menu list-inline d-flex">
+                <li class="header__top-menu-item">Доставка и оплата</li>
+                <li class="header__top-menu-item">|</li>
+                <li class="header__top-menu-item">Контакты</li>
+                <li class="header__top-menu-item">|</li>
+                <li class="header__top-menu-item">О компании</li>
+                <li class="header__top-menu-item">|</li>
+                <li class="header__top-menu-item">Блог</li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="header__bot d-flex justify-content-between align-items-center">
+            <img src="assets/img/logo.svg" alt="logo" class="header__logo" />
+
+            <nav class="header__bot-nav-left">
+              <ul class="header__bot-nav-menu list-inline d-flex">
+                <li class="header__bot-menu-item">
+                  <a href="#">
+                    <img src="assets/icons/catalog.svg" alt="catalog" />
+                    <span>Каталог товаров</span>
+                  </a>
+                </li>
+
+                <li class="header__bot-menu-item">
+                  <a href="#">
+                    <img src="assets/icons/prom.svg" alt="prom" />
+                    <span>АКЦИИ</span>
+                  </a>
+                </li>
+
+                <li class="header__bot-menu-item">
+                  <a href="#">
+                    <img src="assets/icons/sale.svg" alt="sale" />
+                    <span>РАСПРОДАЖА</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="header__search align-content-center">
+              <input type="search" placeholder="Поиск по каталогу" />
+              <button>
+                <img src="assets/icons/search.svg" alt="search" />
+              </button>
+            </div>
+
+            <nav class="header__bot-nav-right">
+              <div class="row text-center">
+                <div class="col">
+                  <a href="#" class="d-block">
+                    <img src="assets/icons/favorite.svg" alt="Избранное" class="img-fluid" />
+                    <div>Избранное</div>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="#" class="d-block">
+                    <img src="assets/icons/cart.svg" alt="Корзина" class="img-fluid" />
+                    <div>Корзина</div>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="#" class="d-block">
+                    <img src="assets/icons/login.svg" alt="Войти" class="img-fluid" />
+                    <div>Войти</div>
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="container catalog-container">
+          <div id="left-container">
+            <div class="container filters-container">
+              <!-- Фильтр по цене -->
+              <div class="price-filter">
+                <h3>Цена</h3>
+                <div class="price-input">
+                  <div class="field">
+                    <input type="number" placeholder="от" class="input-min" value="2500" />
+                  </div>
+                  <div class="separator">—</div>
+                  <div class="field">
+                    <input type="number" placeholder="до" class="input-max" value="7500" />
+                  </div>
+                </div>
+                <div class="slider">
+                  <div class="progress"></div>
+                </div>
+                <div class="range-input">
+                  <input type="range"  class="range-min" min="0" max="10000" value="2500" step="100">
+                  <input type="range"  class="range-max" min="0" max="10000" value="7500" step="100">
+                </div>
+              </div>
+          
+              <!-- Фильтр по брендам -->
+              <div class="brand-filter">
+                <div class="dropdown-header" onclick="toggleBrands(event)">
+                  <h3>Бренд</h3>
+                  <span class="arrow">▼</span>
+                </div>
+                <div class="dropdown-content" id="brandDropdown">
+                  <label class="custom-checkbox">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    Bioaqua
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    Ecocraft
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    Happy Bar
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    Hunca
+                  </label>
+                  <label class="custom-checkbox">
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                    OrganicZone
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="right-container">
+            <div class="list">Уход за телом</div>
+        <div class="container product-container">
+        <div class="product-list">
+          <!-- Карточка товара 1 -->
+          <div class="product-item">
+              <img src="assets/img/catalog/HAPPY BAR Крем для рук увлажняющий ЛАМИНАРИЯ.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">HAPPY BAR Крем для рук увлажняющий ЛАМИНАРИЯ</h1>
+              <span class="old-price">202 руб<br></span>
+              <span class="price">106 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/HAPPY BAR Молочко для тела Естественное сияние ВИНОГРАД.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">HAPPY BAR Молочко для тела Естественное сияние ВИНОГРАД</h1>
+              <span class="old-price">406 руб<br></span>
+              <span class="price">214 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/HAPPY BAR Молочко для тела Питание и увлажнение ВАНИЛЬ.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">HAPPY BAR Молочко для тела Питание и увлажнение ВАНИЛЬ</h1>
+              <span class="old-price">305 руб<br></span>
+              <span class="price">161 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/HAPPY BAR Пена для ванн ВИНОГРАД.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">HAPPY BAR Пена для ванн ВИНОГРАД</h1>
+              <span class="old-price">305 руб<br></span>
+              <span class="price">161 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/HAPPY BAR Скраб для тела ЦВЕТУЩАЯ ВИШНЯ.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">HAPPY BAR Скраб для тела ЦВЕТУЩАЯ ВИШНЯ</h1>
+              <span class="old-price">285 руб<br></span>
+              <span class="price">158 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/Гель для интимной гигиены Rain fragrance Аромат дождя 100 мл.ECOCRAFT.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">Гель для интимной гигиены "Rain fragrance" Аромат дождя 100 мл. ECOCRAFT</h1>
+              <span class="old-price">608руб<br></span>
+              <span class="price">321 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/Крем для тела Ванильный капучино 250 мл.OZ! OrganiсZone.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">Крем д/тела "Ванильный капучино" 250 мл.OZ! OrganiсZone</h1>
+              <span class="old-price">406 руб<br></span>
+              <span class="price">214 руб</span>
+          </div>
+          <div class="product-item">
+              <img src="assets/img/catalog/Крем для тела Belgian chocolate Бельгийский шоколад 150 мл. ECOCRAFT.png" alt="Уход за телом" class="product-image">
+              <h1 class="text-item">Крем для тела "Belgian chocolate" Бельгийский шоколад 150 мл. ECOCRAFT</h1>
+              <span class="old-price">510 руб<br></span>
+              <span class="price">267 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Масло (баттер) для тела Клубничный 150 мл.OZ! OrganicZone.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Масло (баттер) для тела "Клубничный" 150 мл.OZ! OrganicZone</h1>
+            <span class="old-price">487 руб<br></span>
+            <span class="price">257 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Масло какао 50 мл. OZ! OrganikZone.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Масло какао 50 мл. OZ! OrganikZone</h1>
+            <span class="old-price">258 руб<br></span>
+            <span class="price">136 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Масло ши (каритэ) 50 мл. OZ! OrganicZone.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Масло ши (каритэ) 50 мл. OZ! OrganicZone</h1>
+            <span class="old-price">258 руб<br></span>
+            <span class="price">136 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Молочко для тела Lime and mint Лайм и мята 100 мл. ECOCRAFT.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Молочко для тела "Lime and mint" Лайм и мята 100 мл. ECOCRAFT</h1>
+            <span class="old-price">608 руб<br></span>
+            <span class="price">321 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Мыло Лавандовое (с цветками лаванды) 100 гр.OZ! OrganicZone (130г).png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Мыло "Лавандовое" (с цветками лаванды) 100 гр.OZ! OrganicZone (130г)</h1>
+            <span class="old-price">204 руб<br></span>
+            <span class="price">107 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Мыло Цитрус (с апельсиновой цедрой) 100 гр.OZ! OrganicZone.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Мыло "Цитрус" (с апельсиновой цедрой) 100 гр.OZ! OrganicZone</h1>
+            <span class="old-price">204 руб<br></span>
+            <span class="price">107 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Натуральное восстанавливающее крем-масло для тела Belgian chocolate Бельгийский шоколад150мл ECOCRAFT.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Натуральное восстанавливающее крем-масло для тела "Belgian chocolate" Бельгийский шоколад150мл ECOCRAFT</h1>
+            <span class="old-price">569 руб<br></span>
+            <span class="price">300 руб</span>
+          </div>
+          <div class="product-item">
+            <img src="assets/img/catalog/Скраб для тела горячий антицеллюлитный 350 мл. OZ! OrganicZone.png" alt="Уход за телом" class="product-image">
+            <h1 class="text-item">Скраб для тела горячий антицеллюлитный 350 мл. OZ! OrganicZone</h1>
+            <span class="old-price">786 руб<br></span>
+            <span class="price">414 руб</span>
+          </div>
+        </div>
+        <div class="description">
+          <div class="text-content">
+            <P>Средства для ухода за телом - купить в интернет-магазине DeltaStore по выгодным ценам!</P>
+            Кожа — довольно хрупкий орган. На ее качестве непременно отражаются смена климата и воды, недостаток или переизбыток влажности, стресс. Также влияют генетические особенности, гормональный фон и естественный процесс старения. Но хороший уход за кожей способен многое компенсировать.
+Уход за кожей тела – это одна из полезных и приятных практик, которую желательно выполнять ежедневно...
+          </div>
+          <button class="read-more">Читать далее...</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top d-flex">
+        <img src="assets/img/logo.svg" alt="logo" class="footer__logo" />
+
+        <div class="footer__info d-flex">
+          <div class="col">
+            <span>О компании</span>
+            <hr />
+            <span>Акции</span>
+            <span>Доставка</span>
+            <span>Оплата</span>
+            <span>Партнерам</span>
+          </div>
+
+          <div class="col">
+            <span>Информация для заказа</span>
+            <hr />
+            <span>Каталог</span>
+            <span>Гарантия качества</span>
+            <span>Обмен и возврат</span>
+          </div>
+
+          <div class="col">
+            <span>Полезная информация</span>
+            <hr />
+            <span>Как сделать заказ</span>
+            <span>Отзыв</span>
+            <span>Блог</span>
+            <span>Контакты</span>
+            <span>Политика конфиденциальности</span>
+            <span>Пользовательское соглашение</span>
+          </div>
+
+          <div class="col">
+            <span>Оставайтесь на связи</span>
+            <hr />
+
+            <span class="footer__top-info-tel">
+              Прием заказов по телефону:
+              <br />
+              <a href="tel:+79039007520">+7 (903) 900-75-20 (c 10:00 до 21:00)</a>
+            </span>
+
+            <span>
+              <img src="assets/icons/email.svg" alt="email" />
+              <a href="mailto:info@deltastore.online">info@deltastore.online</a>
+            </span>
+
+            <span>
+              <img src="assets/icons/location.svg" alt="location" />
+              <a href="#">Новосибирск, ул. Тюменская д. 8 оф. 2</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="footer__bot">
+        <div class="footer__add-info d-flex justify-content-between">
+          <div class="footer__pay-info">
+            <span>Принимаем к оплате</span>
+            <div>
+              <a href="#">
+                <img src="assets/img/visa-bank.png" alt="visa" />
+              </a>
+              <a href="#">
+                <img src="assets/img/mastercard-bank.png" alt="mastercard" />
+              </a>
+              <a href="#">
+                <img src="assets/img/mir-bank.png" alt="mir" />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__soc-info text-end">
+            <span>Мы в соцсетях</span>
+            <div>
+              <a href="#">
+                <img src="assets/img/youtube.png" alt="youtube" />
+              </a>
+              <a href="#">
+                <img src="assets/img/telegram.png" alt="telegram" />
+              </a>
+              <a href="#">
+                <img src="assets/img/odnoklassniki.png" alt="odnoklassniki" />
+              </a>
+              <a href="#">
+                <img src="assets/img/vk.png" alt="vk" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__copyright d-flex">
+          <div class="col footer__main-copyright">
+            <span>© 2012 - 2023 Delta Store</span>
+            <span>Все права защищены</span>
+          </div>
+
+          <div class="col footer__politic-copyright text-center">
+            <span>Информация на сайте deltastore.online не является публичной офертой</span>
+            <span>Политика конфиденциальности</span>
+          </div>
+
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

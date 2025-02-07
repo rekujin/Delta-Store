@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delta Store</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+    <!-- LIB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__top d-none d-lg-flex justify-content-between">
+            <div class="header__contacts d-flex">
+              <div class="header__phone">
+                <a href="tel:+73832461331" class="d-flex">
+                  <img src="assets/icons/telephone.svg" alt="telephone" />
+                  <span>+7 (383) 246-13-31</span>
+                </a>
+              </div>
+
+              <div class="header__work-time d-flex">
+                <img src="assets/icons/work-time.svg" alt="work time" />
+                <span>10:00 - 21:00</span>
+              </div>
+            </div>
+
+            <nav class="header__top-nav">
+              <ul class="header__top-menu list-inline d-flex">
+                <li class="header__top-menu-item">Доставка и оплата</li>
+                <li class="header__top-menu-item">|</li>
+                <li class="header__top-menu-item">Контакты</li>
+                <li class="header__top-menu-item">|</li>
+                <li class="header__top-menu-item">О компании</li>
+                <li class="header__top-menu-item">|</li>
+                <li class="header__top-menu-item">Блог</li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="header__bot d-flex justify-content-between align-items-center">
+            <img src="assets/img/logo.svg" alt="logo" class="header__logo" />
+
+            <nav class="header__bot-nav-left">
+              <ul class="header__bot-nav-menu list-inline d-flex">
+                <li class="header__bot-menu-item">
+                  <a href="#">
+                    <img src="assets/icons/catalog.svg" alt="catalog" />
+                    <span>Каталог товаров</span>
+                  </a>
+                </li>
+
+                <li class="header__bot-menu-item">
+                  <a href="#">
+                    <img src="assets/icons/prom.svg" alt="prom" />
+                    <span>АКЦИИ</span>
+                  </a>
+                </li>
+
+                <li class="header__bot-menu-item">
+                  <a href="#">
+                    <img src="assets/icons/sale.svg" alt="sale" />
+                    <span>РАСПРОДАЖА</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="header__search align-content-center">
+              <input type="search" placeholder="Поиск по каталогу" />
+              <button>
+                <img src="assets/icons/search.svg" alt="search" />
+              </button>
+            </div>
+
+            <nav class="header__bot-nav-right">
+              <div class="row text-center">
+                <div class="col">
+                  <a href="#" class="d-block">
+                    <img src="assets/icons/favorite.svg" alt="Избранное" class="img-fluid" />
+                    <div>Избранное</div>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="#" class="d-block">
+                    <img src="assets/icons/cart.svg" alt="Корзина" class="img-fluid" />
+                    <div>Корзина</div>
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a href="#" class="d-block">
+                    <img src="assets/icons/login.svg" alt="Войти" class="img-fluid" />
+                    <div>Войти</div>
+                  </a>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="full-width-background">
+          <div class="container main__carousel">
+            <div id="carouselHero" class="carousel slide">
+              <!--Индикаторы карусели-->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              </div>
+
+              <!--Карточки карусели-->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="d-flex">
+                    <div class="carousel-text d-none d-md-block">
+                      <h5>Ecocraft cosmetics —</h5>
+                      <p>Натуральная косметика с селективными ароматами по уникальным рецептам мастеров из Грасса — мировой столицы французской парфюмерии.</p>
+                      <a href="catalog.html" class="carousel-btn">Перейти в каталог</a>
+                    </div>
+                    <img src="assets/img/carousel-item[0].png" alt="Slide 1" />
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="d-flex">
+                    <div class="carousel-text d-none d-md-block">
+                      <h5>Слайд 2 —</h5>
+                      <p>Натуральная косметика с селективными ароматами по уникальным рецептам мастеров из Грасса — мировой столицы французской парфюмерии.</p>
+                      <a href="#" class="carousel-btn">Перейти в каталог</a>
+                    </div>
+                    <img src="assets/img/carousel-item[0].png" alt="Slide 2" />
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="d-flex">
+                    <div class="carousel-text d-none d-md-block">
+                      <h5>Слайд 3 —</h5>
+                      <p>Натуральная косметика с селективными ароматами по уникальным рецептам мастеров из Грасса — мировой столицы французской парфюмерии.</p>
+                      <a href="#" class="carousel-btn">Перейти в каталог</a>
+                    </div>
+                    <img src="assets/img/carousel-item[0].png" alt="Slide 3" />
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="d-flex">
+                    <div class="carousel-text d-none d-md-block">
+                      <h5>Слайд 4 —</h5>
+                      <p>Натуральная косметика с селективными ароматами по уникальным рецептам мастеров из Грасса — мировой столицы французской парфюмерии.</p>
+                      <a href="#" class="carousel-btn">Перейти в каталог</a>
+                    </div>
+                    <img src="assets/img/carousel-item[0].png" alt="Slide 4" />
+                  </div>
+                </div>
+              </div>
+
+              <!--Кнопки навигации карусели-->
+              <button class="carousel-control-prev text-end" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+                <img src="assets/icons/arrow-back.svg" alt="Previous" />
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+                <img src="assets/icons/arrow-next.svg" alt="Next" />
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="container main__notice d-flex">
+            <div class="col">
+              <img src="assets/icons/badge.svg" alt="badge" />
+              <div class="main__notice-text">
+                <h5>Оригинальная продукция</h5>
+                <p>От производителя</p>
+              </div>
+            </div>
+            <div class="col">
+              <img src="assets/icons/delivery.svg" alt="delivery" />
+              <div class="main__notice-text">
+                <h5>Бесплатная доставка</h5>
+                <p>от 2 000 ₽</p>
+              </div>
+            </div>
+            <div class="col">
+              <img src="assets/icons/bonus.svg" alt="bonus" />
+              <div class="main__notice-text">
+                <h5>Скидки и бонусы</h5>
+                <p>Постоянным покупателям</p>
+              </div>
+            </div>
+            <div class="col">
+              <a href="#" class="d-flex">
+                <img src="assets/icons/download.svg" alt="download" />
+                <p>Скачать прайс</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="container main__categories">
+          <span class="main__text-with-background">Категория</span>
+
+          <div class="main__categories-cards d-flex">
+            <div class="image-container">
+              <div class="overlay-text--cosmetics position-absolute">Косметика</div>
+              <img src="assets/img/categories.png" alt="categories" />
+            </div>
+            <div class="double-card-container d-flex flex-column">
+              <div class="image-container">
+                <div class="overlay-text--products-baby position-absolute">Товары для детей</div>
+                <img src="assets/img/baby-product.png" alt="categories" />
+              </div>
+
+              <div class="image-container">
+                <div class="overlay-text--products-house position-absolute">Товары для дома</div>
+                <img src="assets/img/house-product.png" alt="categories" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container main__popular">
+          <span class="main__text-with-background">Популярные товары</span>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__top d-flex">
+            <img src="assets/img/logo.svg" alt="logo" class="footer__logo" />
+
+            <div class="footer__info d-flex">
+              <div class="col">
+                <span>О компании</span>
+                <hr />
+                <span>Акции</span>
+                <span>Доставка</span>
+                <span>Оплата</span>
+                <span>Партнерам</span>
+              </div>
+
+              <div class="col">
+                <span>Информация для заказа</span>
+                <hr />
+                <span>Каталог</span>
+                <span>Гарантия качества</span>
+                <span>Обмен и возврат</span>
+              </div>
+
+              <div class="col">
+                <span>Полезная информация</span>
+                <hr />
+                <span>Как сделать заказ</span>
+                <span>Отзыв</span>
+                <span>Блог</span>
+                <span>Контакты</span>
+                <span>Политика конфиденциальности</span>
+                <span>Пользовательское соглашение</span>
+              </div>
+
+              <div class="col">
+                <span>Оставайтесь на связи</span>
+                <hr />
+
+                <span class="footer__top-info-tel">
+                  Прием заказов по телефону:
+                  <br />
+                  <a href="tel:+79039007520">+7 (903) 900-75-20 (c 10:00 до 21:00)</a>
+                </span>
+
+                <span>
+                  <img src="assets/icons/email.svg" alt="email" />
+                  <a href="mailto:info@deltastore.online">info@deltastore.online</a>
+                </span>
+
+                <span>
+                  <img src="assets/icons/location.svg" alt="location" />
+                  <a href="#">Новосибирск, ул. Тюменская д. 8 оф. 2</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="footer__bot">
+            <div class="footer__add-info d-flex justify-content-between">
+              <div class="footer__pay-info">
+                <span>Принимаем к оплате</span>
+                <div>
+                  <a href="#">
+                    <img src="assets/img/visa-bank.png" alt="visa" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/img/mastercard-bank.png" alt="mastercard" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/img/mir-bank.png" alt="mir" />
+                  </a>
+                </div>
+              </div>
+
+              <div class="footer__soc-info text-end">
+                <span>Мы в соцсетях</span>
+                <div>
+                  <a href="#">
+                    <img src="assets/img/youtube.png" alt="youtube" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/img/telegram.png" alt="telegram" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/img/odnoklassniki.png" alt="odnoklassniki" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/img/vk.png" alt="vk" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer__copyright d-flex">
+              <div class="col footer__main-copyright">
+                <span>© 2012 - 2023 Delta Store</span>
+                <span>Все права защищены</span>
+              </div>
+
+              <div class="col footer__politic-copyright text-center">
+                <span>Информация на сайте deltastore.online не является публичной офертой</span>
+                <span>Политика конфиденциальности</span>
+              </div>
+
+              <div class="col"></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
